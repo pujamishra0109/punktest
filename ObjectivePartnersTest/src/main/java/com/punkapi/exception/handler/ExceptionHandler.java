@@ -11,6 +11,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 /**
  * Created by Puja on 12/04/20.
  */
+//handles the exception of different type
 @Service
 public class ExceptionHandler implements  IExceptionHandler {
 
@@ -19,7 +20,8 @@ public class ExceptionHandler implements  IExceptionHandler {
         BeerError beerError=new BeerError();
         beerError.setStatusCode("500");
         beerError.setErrorMessage(e.getMessage());
-        beerError.setErrorDetails(e.getCause().getMessage());
+        if(null!=e.getCause())
+            beerError.setErrorDetails(e.getCause().getMessage());
         return new ResponseEntity<BeerError>(beerError, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
@@ -29,7 +31,9 @@ public class ExceptionHandler implements  IExceptionHandler {
         BeerError beerError=new BeerError();
         beerError.setStatusCode("500");
         beerError.setErrorMessage(e.getMessage());
-        beerError.setErrorDetails(e.getCause().getMessage());
+        if(null!=e.getCause())
+
+            beerError.setErrorDetails(e.getCause().getMessage());
         return new ResponseEntity<BeerError>(beerError, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -39,7 +43,9 @@ public class ExceptionHandler implements  IExceptionHandler {
         BeerError beerError=new BeerError();
         beerError.setStatusCode("404");
         beerError.setErrorMessage(e.getMessage());
-        beerError.setErrorDetails(e.getCause().getMessage());
+        if(null!=e.getCause())
+
+            beerError.setErrorDetails(e.getCause().getMessage());
         return new ResponseEntity<BeerError>(beerError, HttpStatus.BAD_REQUEST);
 
     }
@@ -49,8 +55,10 @@ public class ExceptionHandler implements  IExceptionHandler {
 
         BeerError beerError=new BeerError();
         beerError.setStatusCode("400");
-        beerError.setErrorMessage(e.getMessage()+e.getParam());
-        beerError.setErrorDetails(e.getCause().getMessage());
+        beerError.setErrorMessage(e.getMessage()+" " +e.getParam());
+        if(null!=e.getCause())
+
+            beerError.setErrorDetails(e.getCause().getMessage());
         return new ResponseEntity<BeerError>(beerError, HttpStatus.BAD_REQUEST);
 
     }

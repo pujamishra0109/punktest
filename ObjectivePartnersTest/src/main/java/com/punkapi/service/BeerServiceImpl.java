@@ -23,6 +23,7 @@ public class BeerServiceImpl implements IBeerService {
     @Autowired
     IModelMapper iModelMapper;
 
+    /* It will return a beer based on the id */
     @Override
     public com.punkapi.controllers.model.Beer getSingleBeer(Integer id) throws BeerException
     {
@@ -39,6 +40,8 @@ public class BeerServiceImpl implements IBeerService {
         }
     }
 
+    // To return a random beer
+
     @Override
     public com.punkapi.controllers.model.Beer getRandomBeer() throws BeerException {
         try {
@@ -54,6 +57,12 @@ public class BeerServiceImpl implements IBeerService {
         }
 
     }
+     /*
+       Gets all the beers and uses the default pagination if not provided
+       or filters by pagination or search result
+
+     */
+
 
     @Override
     public List<com.punkapi.controllers.model.Beer> getAllBeers(int page,int per_page,String searchString) throws BeerException {

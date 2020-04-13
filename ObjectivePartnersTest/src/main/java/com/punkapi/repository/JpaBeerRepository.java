@@ -11,6 +11,8 @@ import java.util.List;
 /**
  * Created by Puja on 11/04/20.
  */
+
+//To access data access layer
 @Repository
 public interface JpaBeerRepository extends JpaRepository<Beer,Long> {
 

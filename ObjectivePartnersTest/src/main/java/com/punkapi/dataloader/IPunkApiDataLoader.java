@@ -6,5 +6,6 @@ package com.punkapi.dataloader;
 
 public interface IPunkApiDataLoader {
 
-    public void loadData();
+    //loads the data from external service to the repository
+     public void loadData();
 }

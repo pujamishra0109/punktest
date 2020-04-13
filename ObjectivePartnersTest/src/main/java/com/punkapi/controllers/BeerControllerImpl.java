@@ -30,6 +30,11 @@ public class BeerControllerImpl implements IBeerController {
     IBeerValidator iBeerValidator;
 
 
+      /*
+      Returns a single beer object by beer id
+       @param name- id which is the id of the beer to be returned
+    */
+
     @Validated
     @Override
     @RequestMapping(value = "/beers/{id}", method = RequestMethod.GET, produces = "application/json")
@@ -49,7 +54,12 @@ public class BeerControllerImpl implements IBeerController {
 
     }
 
-    //Returns all the beers
+    /*
+        Returns all the beers with the default pagination from 1 to 25. There are optional query parameters like page,per_page and search
+         @RequestParam - page- > which is the page number to be returned
+         @RequestParam- per_page -> which is the number of beers per page
+         @RequestParam- search -> which the filter on name or description of the beer
+      */
     @RequestMapping(value = "/beers", method = RequestMethod.GET, produces = "application/json")
     @Validated
     public ResponseEntity<?> getAllBeers(@RequestParam(value = "page",required = false,defaultValue = "1")String page,
@@ -77,6 +87,10 @@ public class BeerControllerImpl implements IBeerController {
             return exceptionHandler.handleException(e);
         }
     }
+
+     /*
+        Return a random beer from the beer list
+     */
 
     @RequestMapping(value = "/beers/random", method = RequestMethod.GET, produces = "application/json")
     @Override

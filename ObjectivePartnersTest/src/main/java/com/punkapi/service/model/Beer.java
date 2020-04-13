@@ -12,6 +12,10 @@ public class Beer {
     String first_brewed;
     String description;
     String image_url;
+
+    public Beer() {
+    }
+
     String abv;
 
 

@@ -10,6 +10,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 /**
  * Created by Puja on 12/04/20.
  */
+//handles the exception of different type
 public interface IExceptionHandler {
 
     public ResponseEntity<BeerError> handleException(Exception e);

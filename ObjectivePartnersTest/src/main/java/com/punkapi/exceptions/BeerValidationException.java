@@ -3,6 +3,7 @@ package com.punkapi.exceptions;
 /**
  * Created by Puja on 12/04/20.
  */
+//for any validation exception
 public class BeerValidationException extends BeerException {
 
     public String param;

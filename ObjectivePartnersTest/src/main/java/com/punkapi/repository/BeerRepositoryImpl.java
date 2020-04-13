@@ -33,12 +33,23 @@ public class BeerRepositoryImpl implements IBeerRepository
     IModelMapper iModelMapper;
 
 
+    /*
+       Gets all the beers and uses the default pagination if not provided
+       or filters by pagination or search result
+
+     */
     @Override
     public List<com.punkapi.service.model.Beer> getAllBeers(int page,int per_page,String searchString) throws BeerException {
         try {
 
             List<Beer>beerList=new ArrayList<>();
             Pageable defaultPages = PageRequest.of(page-1,per_page, Sort.by("id"));
+
+            /*filters the beer list by matching the search string on name or decscription
+
+               it check if the name or description contains a string like the search paramter
+             */
+
             if (Objects.nonNull(searchString))
                 beerList = beerRepository.findByNameOrDescriptionContainingIgnoreCase(searchString, searchString, defaultPages);
             else
@@ -56,9 +67,13 @@ public class BeerRepositoryImpl implements IBeerRepository
 
     }
 
+
+   // To return a random beer
     @Override
     public com.punkapi.service.model.Beer getRandomBeer() throws BeerException{
         try {
+            // It will randomly select a beer and return
+
             String query = "SELECT o.id FROM Beer o ORDER BY random()";
             Query q = entityManager.createQuery(query).setMaxResults(1);
             Beer beer = beerRepository.findById((Long) q.getResultList().get(0)).get();
@@ -68,8 +83,8 @@ public class BeerRepositoryImpl implements IBeerRepository
             throw  new BeerException(e);
         }
     }
-
-   @Override
+    /* It will return a beer based on the id */
+    @Override
     public com.punkapi.service.model.Beer getSingleBeer(Integer id) throws BeerException {
        try
        {

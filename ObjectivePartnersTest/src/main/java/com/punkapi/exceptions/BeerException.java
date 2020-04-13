@@ -3,6 +3,7 @@ package com.punkapi.exceptions;
 /**
  * Created by Puja on 12/04/20.
  */
+//for any exception
 public class BeerException extends Exception {
 
     private Exception cause;

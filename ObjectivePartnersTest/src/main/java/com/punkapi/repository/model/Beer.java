@@ -37,6 +37,9 @@ public class Beer {
     @Column(name = "image_url")
     String image_url;
 
+    public Beer() {
+    }
+
     @Column(name = "abv")
     BigDecimal abv;
 

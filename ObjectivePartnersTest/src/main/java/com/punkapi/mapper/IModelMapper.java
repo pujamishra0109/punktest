@@ -7,6 +7,8 @@ import java.util.List;
 /**
  * Created by Puja on 11/04/20.
  */
+
+//maps from one object to another
 public interface IModelMapper
 {
 
