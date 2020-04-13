@@ -14,6 +14,19 @@ public class Beer {
     String image_url;
     String abv;
 
+
+
+    public Beer(String id, String name, String tagline, String first_brewed, String description, String image_url, String abv) {
+        this.id = id;
+        this.name = name;
+        this.tagline = tagline;
+        this.first_brewed = first_brewed;
+        this.description = description;
+        this.image_url = image_url;
+        this.abv = abv;
+    }
+
+
     public String getId() {
         return id;
     }

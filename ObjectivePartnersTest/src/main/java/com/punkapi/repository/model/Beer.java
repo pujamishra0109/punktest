@@ -1,6 +1,8 @@
 package com.punkapi.repository.model;
 
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,6 +14,7 @@ import java.sql.Date;
  * Created by Puja on 10/04/20.
  */
 
+@Data
 @Entity
 @Table(name="beer")
 public class Beer {
@@ -36,6 +39,16 @@ public class Beer {
 
     @Column(name = "abv")
     BigDecimal abv;
+
+    public Beer(Long id, String name, String tagline, String first_brewed, String description, String image_url, BigDecimal abv) {
+        this.id = id;
+        this.name = name;
+        this.tagline = tagline;
+        this.first_brewed = first_brewed;
+        this.description = description;
+        this.image_url = image_url;
+        this.abv = abv;
+    }
 
     public Long getId() {
         return id;
