@@ -43,7 +43,7 @@ public class ExceptionHandlerTest {
         ResponseEntity<BeerError> responseEntity = exceptionHandler.handleException(e);
         Assert.assertTrue(null!=responseEntity.getBody());
         Assert.assertTrue(responseEntity.getBody().getErrorMessage()==e.getMessage());
-        Assert.assertTrue(responseEntity.getBody().getStatusCode() == "500");
+        Assert.assertTrue(responseEntity.getBody().getStatusCode().equals("500"));
         Assert.assertTrue(responseEntity.getBody().getErrorDetails() == null);
         Assert.assertTrue(responseEntity.getStatusCode() == HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -54,7 +54,7 @@ public class ExceptionHandlerTest {
         ResponseEntity<BeerError> responseEntity = exceptionHandler.handleException(e);
         Assert.assertTrue(null!=responseEntity.getBody());
         Assert.assertTrue(responseEntity.getBody().getErrorMessage()==e.getMessage());
-        Assert.assertTrue(responseEntity.getBody().getStatusCode() == "500");
+        Assert.assertTrue(responseEntity.getBody().getStatusCode().equals("500"));
         Assert.assertTrue(responseEntity.getStatusCode() == HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
