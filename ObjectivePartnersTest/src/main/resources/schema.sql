@@ -1,0 +1,1 @@
+create table beer( id int PRIMARY KEY, name varchar(50),tagline varchar(50),first_brewed varchar(50), description varchar(100),image_url varchar(50),abv decimal);
